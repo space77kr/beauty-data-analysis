@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - pdf-final-test   # 테스트 브랜치에서도 동작
+      - pdf-final-test   # 테스트 브랜치에서도 실행
 
 jobs:
   build:

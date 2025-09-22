@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - pdf-final-test   # 테스트 브랜치도 허용
+      - pdf-final-test   # 테스트 브랜치에서도 동작
 
 jobs:
   build:
@@ -30,4 +30,3 @@ jobs:
         with:
           name: analysis-report
           path: reports/report.pdf
-

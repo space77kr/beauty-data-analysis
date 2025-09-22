@@ -1,0 +1,21 @@
+name: Build Docs
+
+on:
+  push:
+    paths:
+      - 'docs/**.md'
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: pip install pypandoc
+      - run: |
+          for file in docs/*.md; do
+            pandoc "$file" -o "reports/$(basename "$file" .md).pdf" --standalone
+          done
+      - uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: reports/*.pdf

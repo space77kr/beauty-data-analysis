@@ -10,9 +10,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: mkdir -p public && echo '<h1>프로젝트 문서 페이지</h1>' > public/index.html
+      - run: |
+          mkdir -p public
+          echo '<h1>프로젝트 문서 페이지</h1>' > public/index.html
+          echo '<p><a href="hello.pdf">hello.pdf 다운로드</a></p>' >> public/index.html
+          echo '<p><a href="report.pdf">report.pdf 다운로드</a></p>' >> public/index.html
+          cp reports/*.pdf public/ || true
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+

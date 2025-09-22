@@ -23,8 +23,9 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v2
         with:
-          path: docs   # docs 폴더 배포
+          path: docs   # docs 폴더를 Pages로 배포
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+

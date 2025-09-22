@@ -3,7 +3,7 @@ name: Deploy Pages
 on:
   push:
     branches:
-      - main   # Pages는 main 브랜치에서만 실행되도록 제한
+      - main   # Pages는 main에서만 실행
 
 jobs:
   deploy:
@@ -23,9 +23,8 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v2
         with:
-          path: docs   # docs 폴더를 페이지 소스로 배포
+          path: docs   # docs 폴더 배포
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
